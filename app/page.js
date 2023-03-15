@@ -15,7 +15,7 @@ import GetRedy from '../components/sectionsHero/get.rady'
 import './globals.css'
 
 export default function Home() {
-  const { pathname } = useRouter()
+	const { pathname } = useRouter()
 
 	// Прокрутка в начало сайта при обновлении страницы
 	useEffect(() => {
@@ -25,8 +25,8 @@ export default function Home() {
 	return (
 		<main className='font-montserrat'>
 			<Hero />
-			<Helps />
 			<HowItWorks />
+			<Helps />
 			<GetRedy />
 		</main>
 	)
