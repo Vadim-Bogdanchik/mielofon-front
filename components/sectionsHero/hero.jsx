@@ -3,7 +3,7 @@
 //
 
 import React from 'react'
-// import BtnMain from '../../components/btn.main'
+import SocialLinks from '../social.links'
 
 const Hero = () => {
 	return (
@@ -17,7 +17,7 @@ const Hero = () => {
 				Попробовать бесплатно
 			</div>
 
-			{/* <BtnMain text={<>Попробовать бесплатно</>} /> */}
+			<SocialLinks />
 		</section>
 	)
 }
