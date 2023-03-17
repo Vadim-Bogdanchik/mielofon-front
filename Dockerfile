@@ -1,23 +1,23 @@
-# Use an official Node runtime as a parent image
+# Используем официальный образ Node.js 16 в качестве базового
 FROM node:lts-alpine
 
-# Set the working directory to /app
+# Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
+# Копируем файлы package.json и package-lock.json в рабочую директорию
 COPY package*.json ./
 
-# Install dependencies
+# Устанавливаем зависимости проекта
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Копируем остальные файлы проекта в рабочую директорию
 COPY . .
 
-# Build the application
+# Собираем продакшн версию Next.js приложения
 RUN npm run build
 
-# Expose the port that the application will run on
+# Открываем порт 3001 для Next.js приложения
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "start"]
+# Запускаем Next.js приложение при старте контейнера
+CMD ["npm", "run", "start"]

@@ -1,9 +1,28 @@
+# Определите версию docker-compose
 version: '3'
 
+# Определите сервисы, которые будут запущены в сети Docker
 services:
-  web:
-    build: .
-    command: npm start
+  # Определите контейнер с NGINX
+  nginx:
+    image: nginx:latest # Используйте последнюю версию образа NGINX
     ports:
-      - '3000:3000'
-    restart: always
+      - '80:80' # Пробросьте порты 80 и 443 на хост
+      - '443:443'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf # Подключите файл конфигурации NGINX
+      - /etc/letsencrypt:/etc/letsencrypt # Подключите директорию с сертификатами Let's Encrypt
+    depends_on:
+      - app # Укажите зависимость от контейнера с приложением
+    restart: always # Перезапускайте контейнер всегда, если он остановлен
+
+  # Определите контейнер с приложением Next.js
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile # Укажите путь к Dockerfile для сборки образа
+    environment:
+      - NODE_ENV=production # Установите переменную окружения для среды Node.js
+    ports:
+      - '3000:3000' # Пробросьте порт 3001 на хост
+    restart: always # Перезапускайте контейнер всегда, если он остановлен
