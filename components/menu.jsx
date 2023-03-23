@@ -29,9 +29,9 @@ const Menu = () => {
 
 	return (
 		<nav className='transparent'>
-			<ul className='flex gap-10 items-center text-[14px] 2xl:text-[16px] font-semibold'>
+			<ul className='flex gap-10 items-center text-[14px] 2xl:text-[16px] font-semibold '>
 				<li className='relative group cursor-pointer border-white'>
-					<Link href='/'> Главная</Link>
+					<Link href='/'>Главная</Link>
 
 					<div className={underlineBg}></div>
 				</li>

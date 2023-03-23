@@ -10,6 +10,7 @@ import Logo from './logo'
 import Menu from './menu'
 import CallAction from './call.action'
 
+
 const Topbar = () => {
 	const [navColor, setNavColor] = useState('transparent')
 	const [navText, setNavText] = useState('white')
@@ -37,6 +38,7 @@ const Topbar = () => {
 				<Logo />
 				<Menu />
 				<CallAction />
+
 			</div>
 		</div>
 	)

@@ -4,6 +4,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import BtnMain from '../components/btn.main'
+import BurgerMenu from './burger.menu'
 
 const CallAction = () => {
 	const [bgColor, setBgColor] = useState('white')
@@ -37,6 +38,7 @@ const CallAction = () => {
 				<div className={loginBtnBg}></div>
 			</div>
 			<div className={ActionBtnBg}>Подключайтесь — Это бесплатно</div>
+			<BurgerMenu />
 		</div>
 	)
 }
