@@ -16,23 +16,28 @@ const Helps = () => {
 	const { ref, inView } = useInView({ threshold: 0.5 })
 
 	useEffect(() => {
-		let timer
+		// Очистка всех предыдущих таймеров при изменении видимости элемента
+		let timers = []
 
 		if (inView) {
 			setVisible(true)
+
 			const currentTextArr = texts[currentIdx].split('')
 			setCurrentText('')
 
 			currentTextArr.forEach((char, idx) => {
-				timer = setTimeout(() => {
+				const timer = setTimeout(() => {
 					setCurrentText(prev => prev + char)
 				}, 100 * idx)
+				// Добавление нового таймера в массив timers
+				timers.push(timer)
 			})
 		} else {
 			setVisible(false)
 		}
 
-		return () => clearTimeout(timer)
+		// Очистка всех таймеров в массиве timers при размонтировании или изменении inView или currentIdx
+		return () => timers.forEach(timer => clearTimeout(timer))
 	}, [inView, currentIdx])
 
 	useEffect(() => {
@@ -64,7 +69,7 @@ const Helps = () => {
 						разработанного на основе нейронных сетей.
 					</div>
 
-					<div className='flex gap-5 w-full py-10 px-6 text-xl font-normal'>
+					{/* <div className='flex gap-5 w-full py-10 px-6 text-xl font-normal'>
 						<div className='flex flex-col items-center rounded-3xl w-1/3 border py-2 px-4'>
 							qeq
 						</div>
@@ -74,7 +79,7 @@ const Helps = () => {
 						<div className='flex flex-col items-center rounded-3xl w-1/3 border py-2 px-4'>
 							{' '}
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</section>

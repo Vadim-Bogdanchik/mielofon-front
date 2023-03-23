@@ -16,8 +16,6 @@ const Hero = () => {
 			<div className='text-[18px] bg-white bg-opacity-70 text-zinc-800 py-4 px-6 rounded-full cursor-pointer hover:bg-opacity-80 transition-colors font-semibold mt-16 mb-2 shadow-xl'>
 				Попробовать бесплатно
 			</div>
-
-			<SocialLinks />
 		</section>
 	)
 }
