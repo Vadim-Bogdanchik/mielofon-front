@@ -6,10 +6,12 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-import Hero from '../components/sectionsHero/hero'
-import Helps from '../components/sectionsHero/helps'
-import HowItWorks from '../components/sectionsHero/how.it.works'
-import GetRedy from '../components/sectionsHero/get.rady'
+import Hero from '../components/sections/hero'
+import Helps from '../components/sections/helps'
+import HowItWorks from '../components/sections/how.it.works'
+import GetRedy from '../components/sections/get.rady'
+import Api from '../components/sections/api'
+import ChatMode from '../components/sections/chat.mode'
 
 // Styles global
 import './globals.css'
@@ -25,7 +27,9 @@ export default function Home() {
 	return (
 		<main className='font-montserrat'>
 			<Hero />
-			<HowItWorks />
+			{/* <ChatMode /> */}
+			<Api />
+			{/* <HowItWorks /> */}
 			<Helps />
 			<GetRedy />
 		</main>

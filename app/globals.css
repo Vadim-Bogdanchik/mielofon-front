@@ -3,8 +3,15 @@
 @tailwind utilities;
 
 .bg_hero {
-	@apply bg-[url('/images/herobg.jpg')] bg-center bg-cover bg-no-repeat bg-fixed;
+	@apply bg-[url('/images/herobg.jpg')] bg-center bg-cover bg-no-repeat bg-fixed z-0;
 }
+.bg_hero::before {
+  @apply absolute inset-0 bg-gradient-to-t;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  content: "";
+  z-index: 1;
+}
+
 .bg_header {
 	@apply bg-[url('/images/bghelp.jpg')] bg-center bg-cover bg-no-repeat bg-fixed;
 }
@@ -13,6 +20,24 @@
 }
 .bg_footer {
 	@apply bg-[url('/images/bgfooter.jpg')] bg-center bg-cover bg-no-repeat bg-opacity-30;
+}
+
+/* Define the styles for the slide-out menu */
+.slide-out-menu {
+	position: fixed;
+	top: 0;
+	padding: 30px;
+	margin: 10px 0 10px 10px 10px;
+	right: -100%;
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(-45deg, #57da7d, #5b5dd8, #ec37ff);
+	z-index: 999;
+	transition: all 0.3s ease-in-out;
+}
+
+.slide-out-menu.active {
+	right: 0;
 }
 
 @keyframes gradient {
@@ -36,7 +61,7 @@
 .animate-gradient-help {
 	animation: gradient 10s ease infinite;
 	background-image: linear-gradient(-45deg, #58c98b, #5a85bc, #57ae9d);
-	background-size: 400% 400%;
+	background-size: 100% 400%;
 	background-clip: text;
 }
 

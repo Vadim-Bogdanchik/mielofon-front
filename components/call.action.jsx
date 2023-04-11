@@ -5,6 +5,7 @@
 import { useEffect, useState } from 'react'
 import BtnMain from '../components/btn.main'
 import BurgerMenu from './burger.menu'
+import Link from 'next/link'
 
 const CallAction = () => {
 	const [bgColor, setBgColor] = useState('white')
@@ -33,11 +34,17 @@ const CallAction = () => {
 
 	return (
 		<div className='flex gap-4 items-center text-[14px] 2xl:text-[16px] '>
-			<div className='relative group cursor-pointer'>
-				Войти
-				<div className={loginBtnBg}></div>
-			</div>
-			<div className={ActionBtnBg}>Подключайтесь — Это бесплатно</div>
+			<Link href='https://app.mielofon.online/'>
+				<div className='relative group cursor-pointer'>
+					Войти
+					<div className={`${loginBtnBg}} hidden xl:block`}></div>
+				</div>
+			</Link>
+			<Link href='https://app.mielofon.online/'>
+				<div className='hidden xl:block'>
+					<div className={ActionBtnBg}>Подключайтесь — Это бесплатно</div>
+				</div>
+			</Link>
 			<BurgerMenu />
 		</div>
 	)

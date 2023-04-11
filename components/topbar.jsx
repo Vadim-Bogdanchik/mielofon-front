@@ -10,7 +10,6 @@ import Logo from './logo'
 import Menu from './menu'
 import CallAction from './call.action'
 
-
 const Topbar = () => {
 	const [navColor, setNavColor] = useState('transparent')
 	const [navText, setNavText] = useState('white')
@@ -32,13 +31,12 @@ const Topbar = () => {
 	return (
 		<div
 			style={{ backgroundColor: `${navColor}`, color: `${navText}` }}
-			className='fixed top-0 left-0 flex items-end justify-center w-full h-[90px] border-b-[1px] border-white border-opacity-20 px-20 select-none transition-colors font-montserrat'
+			className='fixed top-0 left-0 flex items-center xl:items-end justify-center w-full h-[90px] border-b-[1px] border-white border-opacity-20 px-5 xl:px-20 select-none transition-colors font-montserrat z-20'
 		>
 			<div className='flex items-center justify-between w-full h-max pb-3'>
 				<Logo />
 				<Menu />
 				<CallAction />
-
 			</div>
 		</div>
 	)
